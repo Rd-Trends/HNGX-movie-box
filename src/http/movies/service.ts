@@ -1,3 +1,4 @@
+import { Movie } from "@/Type/Movie";
 import apiClient from "../api";
 
 export const getPopularMovies = () => {
@@ -14,7 +15,7 @@ export const getMoviesGenres = () => {
 
 export const getMovieById = (id: string) => {
   return apiClient
-    .get(`/movie/${id}?append_to_response=videos`)
+    .get<Movie>(`/movie/${id}?append_to_response=videos`)
     .then((res) => res.data);
 };
 

@@ -4,6 +4,7 @@ import MovieContainer from "@/containers/MovieContainer";
 import { getMovieById, getMovieTrailerById } from "@/http/movies/service";
 import { Metadata, ResolvingMetadata } from "next";
 import { BASEiMAGE_URL } from "@/constants/endpoints";
+import { Movie } from "@/Type/Movie";
 
 type Props = {
   params: { movieId: string };
@@ -17,7 +18,7 @@ export async function generateMetadata(
   const id = params.movieId;
 
   // fetch data
-  const movie = await getMovieById(id);
+  const movie: Movie = await getMovieById(id);
 
   // optionally access and extend (rather than replace) parent metadata
   const previousImages = (await parent).openGraph?.images || [];

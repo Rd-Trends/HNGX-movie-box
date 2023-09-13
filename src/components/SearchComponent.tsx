@@ -45,6 +45,7 @@ const SearchComponent = () => {
     <div className=" relative flex flex-col items-center w-full md:max-w-md lg:max-w-lg">
       <label className=" relative flex items-center w-full md:max-w-md lg:max-w-lg ">
         <input
+          data-testid="search-input"
           placeholder="what do yo want to watch?"
           className=" bg-transparent py-[6px] px-[10px] pr-[50px] border-2 rounded-md border-[#d1d5db] text-white placeholder:text-white w-full outline-none  "
           onChange={handleSearch}
@@ -55,7 +56,9 @@ const SearchComponent = () => {
       </label>
 
       {!!debouncedSearchQuery && (
-        <div className=" absolute top-12 bg-white py-4 px-4 space-y-4 rounded-md left-0 right-0 max-h-96 overflow-y-auto shadow-xl">
+        <div
+          data-testid="search-result"
+          className=" absolute top-12 bg-white py-4 px-4 space-y-4 rounded-md left-0 right-0 max-h-96 overflow-y-auto shadow-xl">
           <p>
             SEARCH RESULT FOR:{" "}
             <strong>{debouncedSearchQuery.toUpperCase()}</strong>
@@ -64,6 +67,12 @@ const SearchComponent = () => {
           {isLoading && (
             <div className=" flex items-center justify-center">
               <Loader />
+            </div>
+          )}
+
+          {!isLoading && !searchedMovies?.length && (
+            <div className=" text-center">
+              <span className=" text-lg font-bold">No result found</span>
             </div>
           )}
 

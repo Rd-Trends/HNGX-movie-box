@@ -18,6 +18,7 @@ export default function Error({
   return (
     <div className=" flex h-screen flex-col items-center justify-center space-y-4">
       <h2 className=" text-2xl font-bold">Something went wrong!</h2>
+      <p>May be due to poor internet connection</p>
       <Button
         onClick={
           // Attempt to recover by trying to re-render the segment

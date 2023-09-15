@@ -2,7 +2,11 @@ import React, { useCallback, useMemo } from "react";
 import MovieCard from "./MovieCard";
 import Link from "next/link";
 import { ChevronRightIcon } from "./icons";
-import { useGetMovies, useGetMoviesGenres, useGetTopRatedMovies } from "@/http/movies/query";
+import {
+  useGetPopularMovies,
+  useGetMoviesGenres,
+  useGetTopRatedMovies,
+} from "@/http/movies/query";
 import { getGenreNames } from "@/utils/getGenreNames";
 
 const FeaturedMovies = () => {
@@ -26,7 +30,9 @@ const FeaturedMovies = () => {
     <div className="custom-container my-12 space-y-8">
       <div className=" flex flex-col justify-center space-y-4 md:space-y-0 md:flex-row items-center md:justify-between">
         <h2 className=" text-4xl font-bold text-black">Featured Movies</h2>
-        <Link href="" className="flex items-center text-primary-color-100">
+        <Link
+          href="/movie/list"
+          className="flex items-center text-primary-color-100">
           <span className=" pr-2">See more </span>
           <ChevronRightIcon />
         </Link>

@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import {
   getMovieById,
-  getMovieTrailerById,
   getMoviesGenres,
   getPopularMovies,
   getSearchedMovies,
@@ -15,17 +14,19 @@ import {
   TOP_RATED_MOVIES,
 } from "@/constants/queryKey";
 
-export const useGetMovies = () => {
+export const useGetPopularMovies = (page = 1) => {
   return useQuery<MovieResults>({
-    queryKey: [...POPUPAR_MOVIES],
-    queryFn: getPopularMovies,
+    queryKey: [...POPUPAR_MOVIES, page],
+    queryFn: () => getPopularMovies(page),
+    keepPreviousData: true,
   });
 };
 
-export const useGetTopRatedMovies = () => {
+export const useGetTopRatedMovies = (page = 1) => {
   return useQuery<MovieResults>({
-    queryKey: [...TOP_RATED_MOVIES],
-    queryFn: getTopRatedMovies,
+    queryKey: [...TOP_RATED_MOVIES, page],
+    queryFn: () => getTopRatedMovies(page),
+    keepPreviousData: true,
   });
 };
 
@@ -43,10 +44,10 @@ export const useGetMovieById = (id: string) => {
   });
 };
 
-export const useSearchMovies = (query: string) => { 
+export const useSearchMovies = (query: string) => {
   return useQuery<MovieResults>({
     queryKey: ["search", query],
     queryFn: () => getSearchedMovies(query),
-    suspense: false
+    suspense: false,
   });
-}
+};

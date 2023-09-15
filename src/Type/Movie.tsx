@@ -1,3 +1,5 @@
+import { Genre } from "./Genre";
+
 export interface MovieResults {
   page: number;
   results: Movie[];
@@ -56,11 +58,6 @@ export interface BelongsToCollection {
   name: string;
   poster_path: any;
   backdrop_path: string;
-}
-
-export interface Genre {
-  id: number;
-  name: string;
 }
 
 export interface ProductionCompany {

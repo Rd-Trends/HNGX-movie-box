@@ -1,6 +1,6 @@
 import { dehydrate, Hydrate } from "@tanstack/react-query";
-import getQueryClient from "./getQueryClient";
-import HomeContainer from "@/containers/Home";
+import getQueryClient from "../../getQueryClient";
+
 import {
   getMoviesGenres,
   getPopularMovies,
@@ -11,6 +11,7 @@ import {
   POPUPAR_MOVIES,
   TOP_RATED_MOVIES,
 } from "@/constants/queryKey";
+import MovieList from "@/containers/MovieList";
 
 export default async function HydratedPosts() {
   const queryClient = getQueryClient();
@@ -25,7 +26,7 @@ export default async function HydratedPosts() {
 
   return (
     <Hydrate state={dehydratedState}>
-      <HomeContainer />
+      <MovieList />
     </Hydrate>
   );
 }

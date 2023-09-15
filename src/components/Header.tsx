@@ -47,7 +47,7 @@ const Header = ({
           <PlayIcon /> <span className="pl-2">Watch Trailer</span>
         </Link>
       </div>
-      <div className=" flex md:flex-col space-x-4 items-end mt-4 md:mt-0 md:space-x-0 ">
+      <div className=" flex md:flex-col space-x-4 items-end mt-12 md:mt-0 md:space-x-0 ">
         {Array.from({ length: 5 }).map((_, index) => {
           return (
             <button

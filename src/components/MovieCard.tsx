@@ -4,7 +4,7 @@ import Image from "next/image";
 import React from "react";
 import { IMDBIcon, RottenTomatoesIcon } from "./icons";
 import { FavouriteIcon } from "./icons";
-import { imageLoader } from "@/utils/imageLoader";
+import { resolveImageSrc } from "@/utils/imageLoader";
 import Link from "next/link";
 
 type MovieCardProps = {
@@ -20,9 +20,7 @@ const MovieCard = ({ movie, getGenres }: MovieCardProps) => {
       className=" relative space-y-3 no-underline">
       <Image
         data-testid="movie-poster"
-        loader={imageLoader}
-        src={movie?.poster_path}
-        blurDataURL={`${BASEiMAGE_URL_500}${movie?.backdrop_path}`}
+        src={resolveImageSrc(movie?.poster_path)}
         alt=""
         className=""
         width={500}
@@ -51,7 +49,9 @@ const MovieCard = ({ movie, getGenres }: MovieCardProps) => {
       <p className=" text-[#9CA3AF] text-xs font-bold">
         {getGenres(movie?.genre_ids)}
       </p>
-      <button className="absolute top-4 right-4 border-none outline-none">
+      <button
+        onClick={(e) => e.preventDefault()}
+        className="absolute flex items-center justify-center w-[30px] p-0 aspect-square rounded-full bg-[rgba(243,_244,_246,_0.50)] [backdrop-filter:blur(1px)] text-[#D1D5DB] hover:scale-[1.2] hover:text-primary-color-100 hover:bg-primary-color-70 focus:bg-primary-color-70 active:bg-primary-color-70 top-4 right-4 border-none outline-none">
         <FavouriteIcon />
       </button>
     </Link>

@@ -3,7 +3,7 @@ import { IMDBIcon, RottenTomatoesIcon, SearchIcon } from "./icons";
 import { useGetMoviesGenres, useSearchMovies } from "@/http/movies/query";
 import { getGenreNames } from "@/utils/getGenreNames";
 import Link from "next/link";
-import { imageLoader } from "@/utils/imageLoader";
+import { resolveImageSrc } from "@/utils/imageLoader";
 import Image from "next/image";
 import { BASEiMAGE_URL_500 } from "@/constants/endpoints";
 import Loader from "./Loader";
@@ -58,7 +58,7 @@ const SearchComponent = () => {
       {!!debouncedSearchQuery && (
         <div
           data-testid="search-result"
-          className=" absolute top-12 bg-white py-4 px-4 space-y-4 rounded-md left-0 right-0 max-h-96 overflow-y-auto shadow-xl">
+          className=" absolute top-12 bg-white py-4 px-4 space-y-4 rounded-md left-0 right-0 max-h-96 overflow-y-auto shadow-xl z-10">
           <p>
             SEARCH RESULT FOR:{" "}
             <strong>{debouncedSearchQuery.toUpperCase()}</strong>
@@ -86,8 +86,7 @@ const SearchComponent = () => {
                   className=" flex space-x-4 no-underline">
                   <Image
                     data-testid="movie-poster"
-                    src={`${BASEiMAGE_URL_500}${movie?.poster_path}`}
-                    // blurDataURL={`${BASEiMAGE_URL_500}${movie?.backdrop_path}`}
+                    src={resolveImageSrc(movie?.poster_path)}
                     alt=""
                     className=" aspect-square"
                     width={100}

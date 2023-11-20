@@ -1,7 +1,8 @@
+import { ButtonSize } from "@/Type/Button";
 import Button from "@/components/Button";
 
 describe("Button", () => {
     it("renders correctly", () => { 
-        cy.mount(<Button>Click me</Button>);
+        cy.mount(<Button size={ButtonSize.Small}>Click me</Button>);
     });
 });

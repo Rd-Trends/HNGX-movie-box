@@ -25,6 +25,8 @@ import { mount } from 'cypress/react18'
 // your custom command.
 // Alternatively, can be defined in cypress/support/component.d.ts
 // with a <reference path="./component" /> at the top of your spec.
+
+import '../../src/app/globals.css'
 declare global {
   namespace Cypress {
     interface Chainable {

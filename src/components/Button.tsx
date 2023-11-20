@@ -1,25 +1,25 @@
-// import { ButtonProps, ButtonSize, ButtonVariant } from "@/Type";
+import { ButtonProps, ButtonSize, ButtonVariant } from "@/Type/Button";
 import clsx from "clsx";
 import React from "react";
 
-export enum ButtonVariant {
-  Primary = "primary",
-  Secondary = "secondary",
-}
+// export enum ButtonVariant {
+//   Primary = "primary",
+//   Secondary = "secondary",
+// }
 
-export enum ButtonSize {
-  Small = "small",
-  Medium = "medium",
-}
+// export enum ButtonSize {
+//   Small = "small",
+//   Medium = "medium",
+// }
 
-export type ButtonProps = {
-  children: React.ReactNode;
-  rounded?: boolean;
-  variant?: ButtonVariant;
-  size?: ButtonSize;
-  fullWIdth?: boolean;
-  className?: string;
-} & React.ButtonHTMLAttributes<any>;
+// export type ButtonProps = {
+//   children: React.ReactNode;
+//   rounded?: boolean;
+//   variant?: ButtonVariant;
+//   size?: ButtonSize;
+//   fullWIdth?: boolean;
+//   className?: string;
+// } & React.ButtonHTMLAttributes<any>;
 
 const Button = ({
   children,

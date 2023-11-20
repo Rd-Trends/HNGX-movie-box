@@ -59,8 +59,9 @@ jobs:
           name: build
           path: .next
 
-      - name: Cypress run --component
+      - name: Cypress run component tests
         uses: cypress-io/github-action@v6
         with:
+          component: true
           start: yarn start
           browser: chrome

@@ -7,6 +7,9 @@ export default defineConfig({
       // implement node event listeners here
     },
   },
+  env: {
+    NEXT_PUBLIC_ACCESS_TOKEN: process.env.NEXT_PUBLIC_ACCESS_TOKEN,
+  },
 
   component: {
     devServer: {

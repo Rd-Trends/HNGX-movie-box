@@ -21,9 +21,6 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    // Old "moduleResolution": "Node" option required for Cypress
-    // https://github.com/cypress-io/cypress/issues/26308#issuecomment-1663592648
-    //
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]

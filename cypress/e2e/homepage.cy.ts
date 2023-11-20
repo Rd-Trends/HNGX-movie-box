@@ -21,7 +21,9 @@ describe("home page functions as it should", () => {
     cy.contains(/Featured Movies/i);
     cy.get('[data-testid="movie-card"]')
       .should("have.length", 10)
-      .eq(0)
+      .each(() => {
+        
+      })
       .within(() => {
         cy.get('[data-testid="movie-poster"]').should("be.visible");
         cy.get('[data-testid="movie-title"]').should("be.visible");

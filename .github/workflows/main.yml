@@ -27,7 +27,7 @@ jobs:
           if-no-files-found: error
           path: .next
 
-  cypress-run:
+  e2e:
     runs-on: ubuntu-22.04
     needs: install
     steps:
@@ -41,6 +41,25 @@ jobs:
           path: .next
 
       - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          start: yarn start
+          browser: chrome
+
+  component:
+    runs-on: ubuntu-22.04
+    needs: install
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download the build folder
+        uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: .next
+
+      - name: Cypress run --component
         uses: cypress-io/github-action@v6
         with:
           start: yarn start
